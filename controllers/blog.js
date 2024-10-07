@@ -3,7 +3,7 @@ const Comment = require("../models/comment.model.js")
 
 const createPost = async (req, res) => {
   const { title, content, vidUrl, imgUrl, author } = req.body
-  if (!title, !content, !author, !vidUrl && !umgUrl) {
+  if (!title, !content, !author, !vidUrl && !imgUrl) {
     res.status(400).json({ message: "fill all form inputs" })
   }
   try {
