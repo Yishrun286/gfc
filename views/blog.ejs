@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelan Eagles Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-green-600 text-white py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Gelan Eagles Blog</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-yellow-300 transition duration-300">Home</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition duration-300">About</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div class="mb-8">
+            <form id="searchForm" class="flex items-center">
+                <input type="text" id="searchInput" placeholder="Search blog posts..." class="flex-grow p-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-r-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+
+        <div id="blogPosts" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div id="blogPosts">
+  <% posts.forEach(function(post) { %>
+    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+      <% if (post.video) { %>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe src="https://www.youtube.com/embed/<%= getYouTubeVideoId(post.video) %>" frameborder="0" allowfullscreen></iframe>
+        </div>
+      <% } else { %>
+        <img src="<%= post.image %>" alt="<%= post.title %>" class="w-full h-48 object-cover">
+      <% } %>
+      
+      <div class="p-4">
+        <h2 class="text-xl font-semibold mb-2"><%= post.title %></h2>
+        <p class="text-gray-600 mb-4">By <%= post.author %> on <%= post.date %></p>
+        <p class="text-gray-800"><%= post.content %></p>
+        <a href="/blog/<%= post.title.replace(/\s+/g, '-') %>" class="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded">Read more</a>
+      </div>
+    </div>
+  <% }); %>
+</div>
+        </div>
+
+        <div class="mt-8 flex justify-center">
+            <nav class="inline-flex rounded-md shadow">
+                <button id="prevPage" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-l-md hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    Previous
+                </button>
+                <span id="currentPage" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border-t border-b border-gray-300">
+                    Page 1
+                </span>
+                <button id="nextPage" class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-r-md hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+                    Next
+                </button>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="bg-green-800 text-white py-4 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Gelan Eagles Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>/*
+        // Sample blog post data (in a real application, this would come from the backend)
+        const blogPosts = [
+            {
+                id: 1,
+                title: "Gelan Eagles U13 Team Wins Regional Tournament",
+                content: "Our U13 team showed exceptional skill and teamwork in the recent regional tournament, securing first place...",
+                author: "Coach Ahmed",
+                date: "2023-05-15",
+                image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=800&q=60"
+            },
+            {
+                id: 2,
+                title: "New Training Techniques for Youth Soccer",
+                content: "We've implemented innovative training techniques to help our young players develop their skills more effectively...",
+                author: "Fitness Trainer Selam",
+                date: "2023-05-10",
+                video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            },
+            {
+                id: 3,
+                title: "Gelan Eagles Community Outreach Program",
+                content: "Our club is proud to announce a new community outreach program aimed at bringing soccer to underprivileged areas...",
+                author: "Community Manager Dawit",
+                date: "2023-05-05",
+                image: "https://images.unsplash.com/photo-1459865264687-595d652de67e?auto=format&fit=crop&w=800&q=60"
+            },
+            {
+                id: 4,
+                title: "Nutrition Tips for Young Athletes",
+                content: "Proper nutrition is crucial for young athletes. Here are some tips to keep our players healthy and energized...",
+                author: "Nutritionist Tigist",
+                date: "2023-04-30",
+                image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=60"
+            },
+            {
+                id: 5,
+                title: "Gelan Eagles U15 Player Selected for National Team",
+                content: "We're thrilled to announce that one of our U15 players has been selected to represent Ethiopia in the national youth team...",
+                author: "Coach Yohannes",
+                date: "2023-04-25",
+                image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&w=800&q=60"
+            }
+        ];
+
+        const postsPerPage = 6;
+        let currentPage = 1;
+
+        function renderBlogPosts(posts) {
+            const blogPostsContainer = document.getElementById('blogPosts');
+            blogPostsContainer.innerHTML = '';
+
+            posts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.className = 'bg-white rounded-lg shadow-md overflow-hidden';
+                postElement.innerHTML = `
+                    ${post.video 
+                        ? `<div class="aspect-w-16 aspect-h-9">
+                            <iframe src="https://www.youtube.com/embed/${getYouTubeId(post.video)}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                           </div>`
+                        : `<img src="${post.image}" alt="${post.title}" class="w-full h-48 object-cover">`
+                    }
+                    <div class="p-4">
+                        <h2 class="text-xl font-semibold mb-2">${post.title}</h2>
+                        <p class="text-gray-600 mb-4">By ${post.author} on ${post.date}</p>
+                        <p class="text-gray-800">${post.content}</p>
+                        <a href="#" class="mt-4 inline-block bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-300">Read More</a>
+                    </div>
+                `;
+                blogPostsContainer.appendChild(postElement);
+            });
+        }
+
+        function getYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+          /*  const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        function updatePagination() {
+            const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+            document.getElementById('currentPage').textContent = `Page ${currentPage} of ${totalPages}`;
+            document.getElementById('prevPage').disabled = currentPage === 1;
+            document.getElementById('nextPage').disabled = currentPage === totalPages;
+        }
+
+        function showPage(page) {
+            const startIndex = (page - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = blogPosts.slice(startIndex, endIndex);
+            renderBlogPosts(postsToShow);
+            updatePagination();
+        }
+
+        document.getElementById('prevPage').addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById('nextPage').addEventListener('click', () => {
+            const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const filteredPosts = blogPosts.filter(post => 
+                post.title.toLowerCase().includes(searchTerm) || 
+                post.content.toLowerCase().includes(searchTerm) ||
+                post.author.toLowerCase().includes(searchTerm)
+            );
+            renderBlogPosts(filteredPosts);
+        });
+
+        // Initial render
+        showPage(1);*/
+    </script>
+</body>
+</html>

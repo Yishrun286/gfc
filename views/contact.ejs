@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Gelan Eagles - U13 & U15 Soccer Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="min-h-screen bg-gray-100">
+    <header class="bg-green-600 text-white">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-futbol text-4xl mr-4"></i>
+                    <h1 class="text-3xl font-bold">Gelan Eagles</h1>
+                </div>
+                <nav>
+                    <ul class="flex flex-wrap justify-center space-x-4">
+                        <li><a href="/" class="hover:text-yellow-300 transition duration-300">Home</a></li>
+                        <li><a href="/about" class="hover:text-yellow-300 transition duration-300">About</a></li>
+                        <li><a href="/teams" class="hover:text-yellow-300 transition duration-300">Teams</a></li>
+                        <li><a href="/contact" class="hover:text-yellow-300 transition duration-300">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-green-500 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-4">Contact Us</h2>
+                <p class="text-xl mb-8">Get in touch with Gelan Eagles for general inquiries, tryouts, or to support our club</p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- General Contact Form -->
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-2xl font-bold mb-6">General Contact</h3>
+                        <form action="https://formspree.io/f/mnnakwgb"
+  method="POST"
+>
+                          <input name="subject" value="General contact" hidden="true"/>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                                <input type="email" id="email" name="email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                            </div>
+                            <button type="submit" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-300">Send Message</button>
+                        </form>
+                    </div>
+
+                    <!-- Tryout Contact Form -->
+                    <div class="bg-white rounded-lg shadow-md p-8" id="tryout">
+                        <h3 class="text-2xl font-bold mb-6">Tryout Information</h3>
+                        <form 
+                        action="https://formspree.io/f/mnnakwgb"
+  method="POST"
+>
+                          <input name="subject" value="tryout" hidden="true"/>
+                            <div class="mb-4">
+                                <label for="player-name" class="block text-gray-700 font-bold mb-2">Player's Name</label>
+                                <input type="text" id="player-name" name="player-name" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="player-age" class="block text-gray-700 font-bold mb-2">Player's Age</label>
+                                <input type="number" id="player-age" name="player-age" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="parent-email" class="block text-gray-700 font-bold mb-2">Parent's Email</label>
+                                <input type="email" id="parent-email" name="parent-email" required class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="player-position" class="block text-gray-700 font-bold mb-2">Preferred Position</label>
+                                <input type="text" id="player-position" name="player-position" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="player-experience" class="block text-gray-700 font-bold mb-2">Previous Experience</label>
+                                <textarea id="player-experience" name="player-experience" rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"></textarea>
+                            </div>
+                            <button type="submit" class="bg-yellow-400 text-green-800 font-bold py-2 px-4 rounded hover:bg-yellow-500 transition duration-300">Request Tryout</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-green-100 py-16">
+            <div class="container mx-auto px-4">
+                <h3 class="text-2xl font-bold mb-8 text-center">Support Gelan Eagles</h3>
+                <div class="bg-white rounded-lg shadow-md p-8 max-w-2xl mx-auto">
+                    <p class="mb-6">Your support helps us provide quality training, equipment, and opportunities for our young players. Consider making a donation to the Gelan Eagles Soccer Club.</p>
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-2">Bank Account Information:</h4>
+                        <p><strong>Bank Name:</strong>Commercial bank of Ethiopia</p>
+                        <p><strong>Account Name:</strong>Yohannes legesse</p>
+                        <p><strong>Account Number:</strong> 1000368538454</p>
+                        <p><strong>SWIFT CODE:</strong> CBETETAA</p>
+                    </div>
+                    <p class="text-sm text-gray-600">For any questions about donations or to discuss other ways to support the club, please use the general contact form above.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h3 class="text-2xl font-bold mb-4">Visit Us</h3>
+                <p class="text-xl mb-8">Come see us in action at our home fields!</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">U13 Team</h4>
+                        <p>Gelan Community Park</p>
+                        <p>Gelan condominium, Addis Abeba </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-2">U15 Team</h4>
+                        <p>Gelan Sports Complex</p>
+                        <p>Gelan condominium, Addis Abeba </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-green-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Gelan Eagles Soccer Club. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-2xl mx-2 hover:text-yellow-300 transition duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-2xl mx-2 hover:text-yellow-300 transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-2xl mx-2 hover:text-yellow-300 transition duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

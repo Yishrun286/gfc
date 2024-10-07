@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelan Eagles U13 Team Wins Regional Tournament - Gelan Eagles Blog</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body class="bg-gray-100">
+    <header class="bg-green-600 text-white py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Gelan Eagles Blog</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="blog.html" class="hover:text-yellow-300 transition duration-300">Home</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition duration-300">About</a></li>
+                    <li><a href="#" class="hover:text-yellow-300 transition duration-300">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+      <article class="bg-white rounded-lg shadow-md overflow-hidden">
+    <div id="mainMedia" class="w-full h-96 bg-gray-200">
+        <!-- Main media content (image or video) will be inserted here -->
+        <% if (blog.vidUrl) { %>
+            <video src="<%= blog.vidUrl %>" controls class="w-full h-full"></video>
+        <% } else if (blog.imgUrl) { %>
+            <img src="<%= blog.imgUrl %>" alt="Main Media" class="w-full h-full object-cover" />
+        <% } %>
+    </div>
+    <div class="p-6">
+        <h1 class="text-3xl font-bold mb-4"><%= blog.title %></h1>
+        <div class="flex items-center text-gray-600 mb-4">
+            <i class="fas fa-user mr-2"></i>
+            <span class="mr-4">By <%= blog.author %></span>
+            <i class="fas fa-calendar-alt mr-2"></i>
+            <span><%= blog.date %></span>
+        </div>
+        <div class="prose max-w-none">
+            <%= blog.content %>
+        </div>
+    </div>
+</article>
+              <!-- <section class="mt-12">
+            <h2 class="text-2xl font-bold mb-4">Comments</h2>
+            <form method="POST" acrion="http://localost:8000/api/comment" class="bg-white rounded-lg shadow-md p-6">
+                <div id="commentForm" class="mb-6">
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="name" name="name" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50">
+                    </div>
+                    <div class="mb-4">
+                        <label for="comment" class="block text-sm font-medium text-gray-700">Comment</label>
+                        <textarea id="comment" name="text" rows="4" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-500 focus:ring focus:ring-green-200 focus:ring-opacity-50"></textarea>
+                    </div>
+            <input name="blogId" value="<%= blog._id %>" hidden/>
+                    <button id="post" type="submit" class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition duration-300">
+                        Post Comment
+                    </button>
+                </form>
+                <div id="commentsList">
+                    <!-- Comments will be dynamically inserted here -->
+              <!--  </div>
+            </div>
+        </section>-->
+    </main>
+
+    <footer class="bg-green-800 text-white py-4 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Gelan Eagles Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample blog post data (in a real application, this would come from the backend)
+        const blogPost = {
+            id: 1,
+            title: "Gelan Eagles U13 Team Wins Regional Tournament",
+            content: "Our U13 team showed exceptional skill and teamwork in the recent regional tournament, securing first place...",
+            author: "Coach Ahmed",
+            date: "2023-05-15",
+            image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80",
+            video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        };
+
+        // Sample comments data (in a real application, this would come from the backend)
+        const comments = [
+            { id: 1, name: "Meseret Tadesse", date: "2023-05-16", content: "Congratulations to our U13 team! Your hard work and dedication have paid off. Keep up the great work!" },
+            { id: 2, name: "Yohannes Alemu", date: "2023-05-16", content: "As a parent of one of the players, I couldn't be more proud. The team's spirit and unity were truly inspiring." },
+            { id: 3, name: "Bethlehem Kassahun", date: "2023-05-17", content: "What an amazing achievement! This victory will surely motivate other young players in our community." }
+        ];
+
+        function renderMainMedia() {
+            const mainMediaContainer = document.getElementById('mainMedia');
+            if (blogPost.video) {
+                const videoId = getYouTubeId(blogPost.video);
+                mainMediaContainer.innerHTML = `
+                    <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
+                `;
+            } else if (blogPost.image) {
+                mainMediaContainer.innerHTML = `
+                    <img src="${blogPost.image}" alt="${blogPost.title}" class="w-full h-full object-cover">
+                `;
+            }
+        }
+
+        function getYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        function renderComments() {
+            const commentsList = document.getElementById('commentsList');
+            commentsList.innerHTML = '';
+
+            comments.forEach(comment => {
+                const commentElement = document.createElement('div');
+                commentElement.className = 'border-b border-gray-200 py-4';
+                commentElement.innerHTML = `
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold">${comment.name}</span>
+                        <span class="text-sm text-gray-500">${comment.date}</span>
+                    </div>
+                    <p>${comment.content}</p>
+                `;
+                commentsList.appendChild(commentElement);
+            });
+        }
+
+       // Initial render
+        renderMainMedia();
+        renderComments();
+    </script>
+</body>
+</html>

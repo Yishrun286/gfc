@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelan Eagles Teams - U13 & U15 Soccer Club</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .slider-container {
+            overflow: hidden;
+            position: relative;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            flex: 0 0 100%;
+        }
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .slider-nav.prev { left: 10px; }
+        .slider-nav.next { right: 10px; }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-100">
+    <header class="bg-green-600 text-white">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center mb-4 md:mb-0">
+                    <i class="fas fa-futbol text-4xl mr-4"></i>
+                    <h1 class="text-3xl font-bold">Gelan Eagles</h1>
+                </div>
+                <nav>
+                    <ul class="flex flex-wrap justify-center space-x-4">
+                        <li><a href="/" class="hover:text-yellow-300 transition duration-300">Home</a></li>
+                        <li><a href="/about" class="hover:text-yellow-300 transition duration-300">About</a></li>
+                        <li><a href="/teams" class="hover:text-yellow-300 transition duration-300">Teams</a></li>
+                        <li><a href="/contact" class="hover:text-yellow-300 transition duration-300">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="bg-green-500 text-white py-20">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-4xl font-bold mb-4">Our Teams</h2>
+                <p class="text-xl mb-8">Meet the young talents that make up the Gelan Eagles U13 and U15 squads</p>
+            </div>
+        </section>
+
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- U13 Team -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="./u13.jpg" alt="U13 Team" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4">U13 Team</h3>
+                            <p class="mb-4">Our U13 team focuses on developing fundamental skills and fostering a love for the game. These young players are just beginning their soccer journey with us.</p>
+                            <ul class="mb-4">
+                                <li><strong>Coach:</strong> Yohannes legesse </li>
+                                <li><strong>Training:</strong> Tuesdays and Thursdays, 4:00 PM - 5:30 PM</li>
+                                <li><strong>Home Field:</strong> Gelan Community Park</li>
+                            </ul>
+                            <a href="#u13-roster" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-300">View Roster</a>
+                        </div>
+                    </div>
+
+                    <!-- U15 Team -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="/u15.jpg" alt="U15 Team" class="w-full h-64 object-cover">
+                        <div class="p-6">
+                            <h3 class="text-2xl font-bold mb-4">U15 Team</h3>
+                            <p class="mb-4">Our U15 team builds on core skills and introduces more advanced tactics and gameplay. These players are honing their abilities and teamwork.</p>
+                            <ul class="mb-4">
+                                <li><strong>Coach:</strong>Yohannes  legesse</li>
+                                <li><strong>Training:</strong> Mondays and Wednesdays, 5:00 PM - 6:30 PM</li>
+                                <li><strong>Home Field:</strong> Gelan Sports Complex</li>
+                            </ul>
+                            <a href="#u15-roster" class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-600 transition duration-300">View Roster</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="u13-roster" class="py-16 bg-green-100">
+            <div class="container mx-auto px-4">
+                <h3 class="text-2xl font-bold mb-8 text-center">U13 Team Roster</h3>
+                <div class="slider-container">
+                    <div class="slider" id="u13-slider">
+                        <!-- Slide 1 -->
+                        <div class="slide">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 1</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 2</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 3</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 4</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 5</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 6</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 7</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 8</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="slider-nav prev" onclick="moveSlider('u13-slider', -1)">&#10094;</a>
+                    <a href="#" class="slider-nav next" onclick="moveSlider('u13-slider', 1)">&#10095;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="u15-roster" class="py-16">
+            <div class="container mx-auto px-4">
+                <h3 class="text-2xl font-bold mb-8 text-center">U15 Team Roster</h3>
+                <div class="slider-container">
+                    <div class="slider" id="u15-slider">
+                        <!-- Slide 1 -->
+                        <div class="slide">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 1</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 2</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 3</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 4</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 5</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 6</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 7</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                                    <img src="/placeholder.svg?height=200&width=200" alt="Player Name" class="w-full h-48 object-cover">
+                                    <div class="p-4">
+                                        <h4 class="font-bold">Player Name 8</h4>
+                                        <p class="text-sm text-gray-600">Position</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="slider-nav prev" onclick="moveSlider('u15-slider', -1)">&#10094;</a>
+                    <a href="#" class="slider-nav next" onclick="moveSlider('u15-slider', 1)">&#10095;</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-green-500 text-white py-16">
+            <div class="container mx-auto px-4 text-center">
+                <h3 class="text-2xl font-bold mb-4">Join Our Teams</h3>
+                <p class="text-xl mb-8">Interested in becoming a Gelan Eagle? We're always looking for passionate young players!</p>
+                <a href="/contact#tryout" class="bg-yellow-400 text-green-800 font-bold py-3 px-6 rounded-full hover:bg-yellow-300 transition duration-300">Contact Us for Tryouts</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-green-800 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p>&copy; 2023 Gelan Eagles Soccer Club. All rights reserved.</p>
+            <div class="mt-4">
+                <a href="#" class="text-2xl mx-2 hover:text-yellow-300 transition duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-2xl mx-2 hover:text-yellow-300 transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-2xl mx-2 hover:text-yellow-300 transition duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function moveSlider(sliderId, direction) {
+            const slider = document.getElementById(sliderId);
+            const slides = slider.children;
+            const slideWidth = slides[0].offsetWidth;
+            const currentPosition = parseInt(slider.style.transform.replace('translateX(', '').replace('px)', '') || 0);
+            const maxPosition = -(slideWidth * (slides.length - 1));
+
+            let newPosition = currentPosition + direction * slideWidth;
+
+            if (newPosition > 0) {
+                newPosition = maxPosition;
+            } else if (newPosition < maxPosition) {
+                newPosition = 0;
+            }
+
+            slider.style.transform = `translateX(${newPosition}px)`;
+        }
+    </script>
+</body>
+</html>
