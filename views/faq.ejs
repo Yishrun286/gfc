@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gelaneagle Football Club - FAQ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #006400;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://images.unsplash.com/photo-1614632537423-1e6c2e7e0aab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.85);
+            min-height: 100vh;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #006400;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+        }
+        .faq-item {
+            background-color: rgba(240, 255, 240, 0.9);
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 100, 0, 0.1);
+        }
+        .question {
+            font-weight: bold;
+            font-size: 1.2em;
+            padding: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+        .question::after {
+            content: '\25BC';
+            float: right;
+            transition: transform 0.3s ease;
+        }
+        .question.active::after {
+            transform: rotate(180deg);
+        }
+        .answer {
+            display: none;
+            padding: 0 20px 20px;
+        }
+        .answer.show {
+            display: block;
+        }
+        .contact-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .contact-link a {
+            color: #006400;
+            text-decoration: none;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .contact-link a:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <h1>Frequently Asked Questions</h1>
+            
+            <div class="faq-item">
+                <div class="question">Is the coach licensed?</div>
+                <div class="answer">Yes, our coach has a D license in football.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">Are the training areas private?</div>
+                <div class="answer">Yes, our training areas are private and secure to prevent any issues.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">What age groups does Gelaneagle Football Club cater to?</div>
+                <div class="answer">Gelaneagle Football Club offers programs for various age groups, ranging from youth development (ages 5-12) to senior teams (18+).</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">How often does the team train?</div>
+                <div class="answer">Our teams typically train 3-4 times a week, depending on the age group and competition level.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">Does Gelaneagle Football Club participate in local leagues?</div>
+                <div class="answer">Yes, we actively participate in various local and regional leagues, providing our players with competitive match experience.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="question">Are there opportunities for new players to join the club?</div>
+                <div class="answer">We hold open tryouts several times a year and are always looking for talented and passionate players to join our teams.</div>
+            </div>
+
+            <div class="contact-link">
+                <a href="/contact">Have more questions? Contact us!</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.classList.contains('show');
+
+                // Close all other answers
+                document.querySelectorAll('.answer').forEach(a => a.classList.remove('show'));
+                document.querySelectorAll('.question').forEach(q => q.classList.remove('active'));
+
+                // Toggle the clicked answer
+                if (!isOpen) {
+                    answer.classList.add('show');
+                    question.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -32,6 +32,12 @@ app.get("/about", (req, res) => {
   res.render("about.ejs")
 })
 
+app.get("/faq", (req, res) => {
+  res.render("faq.ejs")
+})
+
+
+
 app.get("/contact", (req, res) => {
   res.render("contact.ejs")
 })

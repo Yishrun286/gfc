@@ -75,65 +75,11 @@
     </footer>
 
     <script>
-        // Sample blog post data (in a real application, this would come from the backend)
-        const blogPost = {
-            id: 1,
-            title: "Gelan Eagles U13 Team Wins Regional Tournament",
-            content: "Our U13 team showed exceptional skill and teamwork in the recent regional tournament, securing first place...",
-            author: "Coach Ahmed",
-            date: "2023-05-15",
-            image: "https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=1200&q=80",
-            video: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-        };
-
-        // Sample comments data (in a real application, this would come from the backend)
-        const comments = [
-            { id: 1, name: "Meseret Tadesse", date: "2023-05-16", content: "Congratulations to our U13 team! Your hard work and dedication have paid off. Keep up the great work!" },
-            { id: 2, name: "Yohannes Alemu", date: "2023-05-16", content: "As a parent of one of the players, I couldn't be more proud. The team's spirit and unity were truly inspiring." },
-            { id: 3, name: "Bethlehem Kassahun", date: "2023-05-17", content: "What an amazing achievement! This victory will surely motivate other young players in our community." }
-        ];
-
-        function renderMainMedia() {
-            const mainMediaContainer = document.getElementById('mainMedia');
-            if (blogPost.video) {
-                const videoId = getYouTubeId(blogPost.video);
-                mainMediaContainer.innerHTML = `
-                    <iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="w-full h-full"></iframe>
-                `;
-            } else if (blogPost.image) {
-                mainMediaContainer.innerHTML = `
-                    <img src="${blogPost.image}" alt="${blogPost.title}" class="w-full h-full object-cover">
-                `;
-            }
-        }
-
         function getYouTubeId(url) {
             const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
             const match = url.match(regExp);
             return (match && match[2].length === 11) ? match[2] : null;
         }
-
-        function renderComments() {
-            const commentsList = document.getElementById('commentsList');
-            commentsList.innerHTML = '';
-
-            comments.forEach(comment => {
-                const commentElement = document.createElement('div');
-                commentElement.className = 'border-b border-gray-200 py-4';
-                commentElement.innerHTML = `
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-semibold">${comment.name}</span>
-                        <span class="text-sm text-gray-500">${comment.date}</span>
-                    </div>
-                    <p>${comment.content}</p>
-                `;
-                commentsList.appendChild(commentElement);
-            });
-        }
-
-       // Initial render
-        renderMainMedia();
-        renderComments();
     </script>
 </body>
 </html>
