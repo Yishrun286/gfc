@@ -1,72 +1,85 @@
-require("dotenv").config()
-const express = require("express")
-const mongoose = require("mongoose")
-const app = express()
-const apiRoute = require("./api.js")
-const Blog = require("./models/blog.model.js")
-
-const port = process.env.PORT || 8000
+require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
+const app = express();
+const apiRoute = require("./api.js");
+const Blog = require("./models/blog.model.js");
+const Product = require("./models/product.model.js");
+const port = process.env.PORT || 8000;
 
 const dbConn = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI)
-    console.log("db connected")
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log("db connected");
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
-dbConn()
+dbConn();
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(express.static('public'))
-app.set("view engine", "ejs")
-app.use("/api", apiRoute)
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+app.use("/api", apiRoute);
 
 app.get("/", (req, res) => {
-  res.render("index.ejs")
-})
+  res.render("index.ejs");
+});
 
 app.get("/about", (req, res) => {
-  res.render("about.ejs")
-})
+  res.render("about.ejs");
+});
 
 app.get("/faq", (req, res) => {
-  res.render("faq.ejs")
-})
-
-
+  res.render("faq.ejs");
+});
 
 app.get("/contact", (req, res) => {
-  res.render("contact.ejs")
-})
+  res.render("contact.ejs");
+});
 
 app.get("/teams", (req, res) => {
-  res.render("teams.ejs")
-})
+  res.render("teams.ejs");
+});
 
 app.get("/blog", async (req, res) => {
-  const posts = await Blog.find()
-  res.render("blog.ejs", { posts: posts })
-})
+  const posts = await Blog.find();
+  res.render("blog.ejs", { posts: posts });
+});
 
 app.get("/blog/:title", async (req, res) => {
-  const title = req.params.title.replace(/-/g, ' ');
-  const blog = await Blog.findOne({ title: title })
+  const title = req.params.title.replace(/-/g, " ");
+  const blog = await Blog.findOne({ title: title });
   if (blog) {
-    res.render("blog-post.ejs", { blog: blog })
+    res.render("blog-post.ejs", { blog: blog });
   } else {
-    res.redirect("/blog")
+    res.redirect("/blog");
   }
-})
+});
 
 app.get("/blog-admin", (req, res) => {
-  res.render("blog-admin.ejs")
-})
+  res.render("blog-admin.ejs");
+});
 
+app.get("/shop", (req, res) => {
+  res.render("shop.ejs");
+});
 
+app.get("/shop-admin", (req, res) => {
+  res.render("shop-admin.ejs");
+});
+
+app.get("/products", async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.status(200).json({ products: products });
+  } catch (error) {
+    res.status(500).json({ message: "something went wrong" });
+  }
+});
 
 app.listen(port, () => {
-  console.log("Server is listening on port " + port)
-})
+  console.log("Server is listening on port " + port);
+});
