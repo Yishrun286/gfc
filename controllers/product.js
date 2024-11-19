@@ -2,7 +2,7 @@ const Product = require("../models/Product.model.js");
 
 const createProduct = async (req, res) => {
   const { title, description, imgUrl, price } = req.body;
-  if ((!title, !description, !imgUrl, !price)) {
+  if (!title || !description || !imgUrl || !price) {
     res.status(400).json({ message: "fill all form inputs" });
   }
   try {

@@ -63,8 +63,14 @@ app.get("/blog-admin", (req, res) => {
   res.render("blog-admin.ejs");
 });
 
-app.get("/shop", (req, res) => {
-  res.render("shop.ejs");
+app.get("/shop", async(req, res) => {
+  try{
+  const products=await Product.find()
+  res.render("shop.ejs",{products:products});
+  }catch(error){
+    //TODO create an error page
+    res.send("cannot retrieve list of products")
+  }
 });
 
 app.get("/shop-admin", (req, res) => {
